@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página de Login</title>
+    <!-- Ruta correcta del archivo CSS -->
+    <link rel="stylesheet" href="registro.css">
+    
+</head>
+<body>
+    <nav> 
+    <!-- Menú de navegación -->
+    <div class="containerMenu">
+        <ul>
+            <li><a href="login.html">Iniciar Sesión</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Contenido de la página de login -->
+    <div class="container">
+        <img  class="logo" src="C:\Users\USUARIO\Desktop\incobis\imagenes\logo.png" alt="Descripción de la imagen" width="130" height="75">
+        <h3>Inicio de Sesión</h3>
+        <form>
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" onclick="window.location.href='incobis.html'">Ingresar</button>
+            <a href="olvide_contrase.html">¿Olvidó su contraseña?</a>
+           
+        </form>
+    </div>
+    
+</body>
+</html>

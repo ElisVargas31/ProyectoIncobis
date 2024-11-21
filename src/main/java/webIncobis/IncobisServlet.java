@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import Dao.UsuarioDAO;
 import clientes.Cliente;
+import clientes.Solicitud;
 
 
 @WebServlet("/incobisServlet")
@@ -34,6 +35,9 @@ public class IncobisServlet extends HttpServlet {
                 case "iniciarSesion":
                     consultarUsuario(request, response);
                     break;
+                case "solicitud":
+                guardarSolicitud(request,response);
+                break;
                 default:
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Acción no reconocida");
                     break;
@@ -91,6 +95,35 @@ public class IncobisServlet extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.print("{\"error\":\"Usuario no encontrado\"}");
         }
+    }
+
+    private void guardarSolicitud(HttpServletRequest request, HttpServletResponse response) 
+            throws IOException 
+    {
+        String experiencia = request.getParameter("experiencia"); // 7
+        String cargo = request.getParameter("cargo");
+        String otros = request.getParameter("comentarioAreaTexto");
+        String tipocontrato = request.getParameter("tipo-contrato");
+        String nivelprofesional = request.getParameter("profesion");
+        String comentario = request.getParameter("comentario");	
+        
+        Solicitud solicitud=new Solicitud();
+        solicitud.setCargo(cargo);
+        solicitud.setComentario(comentario);
+        solicitud.setExperiencia(experiencia);
+        solicitud.setOtros(otros);
+        solicitud.setNivel_profesion(nivelprofesional);
+        solicitud.setTipo_de_contrato(tipocontrato);
+        
+    	
+  boolean guardadoExitoso = usuarioDAO.guardarSolicitud(solicitud);
+  response.setContentType("text/html");
+  PrintWriter out = response.getWriter();
+  if (guardadoExitoso) {
+      out.println("Registro exitoso");
+  } else {
+      out.println("Error en el registro");
+  }
     }
 
 }

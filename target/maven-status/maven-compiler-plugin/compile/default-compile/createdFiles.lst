@@ -1,3 +1,4 @@
+clientes\Solicitud.class
 Dao\ConexionBD.class
 clientes\Cliente.class
 Dao\UsuarioDAO.class

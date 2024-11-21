@@ -99,7 +99,7 @@
     <header>
         <nav>
             <div class="containerMenu">
-                <img class="logo2" src="C:\Users\USUARIO\Desktop\incobis\imagenes\logo.png" alt="logo de incobis" width="130" height="75">
+                <img class="logo2" src="imagenes/logo.png"  alt="logo de incobis" width="130" height="75">
                 <ul class="menu-items"> 
                     <a type="button" class="btn-submit" onclick="location.href='incobis.html'">Atras</a>
    
@@ -110,7 +110,8 @@
     </header>
     <div class="container">
         <h2>Formulario de Solicitud</h2>
-        <form action="/submit" method="post">
+        <form  id="myForm" method="post" action="http://localhost:8080/Incobis/incobisServlet">
+             <input type="hidden" name="action" value="solicitud"> 
             <!-- Experiencia -->
             <div class="form-group">
                 <label for="experiencia">Experiencia (en meses):</label>
@@ -120,18 +121,17 @@
             
 
            <!-- Área de Aseo -->
-<div class="form-group">
-    <label for="area-aseo">Área de Aseo:</label>
-    <select id="area-aseo" name="area-aseo" required>
-        <option value="general">General</option>
-        <option value="Cocina">Cocina</option>
-        <option value="piscina">Piscina</option>
-        <option value="muebles">Muebles</option>
-        <option value="habitaciones">Habitaciones</option>
-        <option value="otros">Otros</option>
-    </select>
-</div>
-
+        <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <select id="cargo" name="cargo" required>
+                    <option value="operariolimpieza">Operario de Limpieza</option>
+                    <option value="tecnicosaneamiento">Tecnico de saneamiento</option>
+                    <option value="supervisoraseo">Supervisor de Aseo</option>
+                    <option value="operarioderramequimico">Operario de derrames quimicos o peligrosos</option>
+                    <option value="operariocontrolplaga">Operario de control de plagas</option>
+                    <option value="operariodeesterilizacion">Contrato por Obra</option>
+                </select>
+            </div>
 <!-- Comentario para 'otros' en área -->
 <div class="otros-comentarios" id="comentarioArea" style="display: none;">
     <label for="comentarioAreaTexto">Otros:</label>
@@ -163,12 +163,18 @@
                 <label for="comentario">Comentario:</label>
                 <textarea id="comentario" name="comentario" rows="4" placeholder="Escribe aquí tus comentarios..." required></textarea>
             </div>
-
+          <button type="submit" class="btn-submit" onclick="location.href='incobis.html'">Enviar Solicitud</button>
             <!-- Botón de Enviar Solicitud -->
-            <button type="button" class="btn-submit" onclick="location.href='incobis.html'">Enviar Solicitud</button>
+            
     
         </form>
     </div>
+    
+  
+
+  
 </body>
+
+    
 </html>
 

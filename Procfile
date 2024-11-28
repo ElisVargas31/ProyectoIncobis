@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/Incobis-1.0-SNAPSHOT.jar
+web: java -jar target/Incobis-1.0-SNAPSHOT.jar
